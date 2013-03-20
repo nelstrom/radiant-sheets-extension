@@ -29,14 +29,14 @@ class SheetsExtension < Radiant::Extension
       add_item "Javascripts", "/admin/scripts"
     end
     
-    ApplicationHelper.module_eval do
-      def filter_options_for_select_with_sheet_restrictions(selected=nil)
-        # sheet_filters = SheetsExtension.stylesheet_filters + SheetsExtension.javascript_filters
-        # filters = TextFilter.descendants - sheet_filters
-        options_for_select([[t('select.none'), '']] + filters.map { |s| s.filter_name }.sort, selected)
-      end
-      alias_method_chain :filter_options_for_select, :sheet_restrictions
-    end
+    # ApplicationHelper.module_eval do
+    #   def filter_options_for_select_with_sheet_restrictions(selected=nil)
+    #     sheet_filters = SheetsExtension.stylesheet_filters + SheetsExtension.javascript_filters
+    #     filters = TextFilter.descendants - sheet_filters
+    #     options_for_select([[t('select.none'), '']] + filters.map { |s| s.filter_name }.sort, selected)
+    #   end
+    #   alias_method_chain :filter_options_for_select, :sheet_restrictions
+    # end
     
     Page.class_eval do      
       def sheet?
